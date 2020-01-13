@@ -51,21 +51,23 @@
 
 <body>
     <div id="main">
+        <h2>Northern Ireland has a government</h2>
+
         <p>
-            It has been
+            Under the current MLAs, Northern Ireland spent
             <span id="days-container"></span>
-            days since Northern Ireland had a government.
+            days without a government.
         </p>
 
         <h2>What have you achieved since Jan 2017?<br/>
 
-        <a href="https://twitter.com/hashtag/my589">#my589</a></h2>
+        <a href="https://twitter.com/hashtag/my1092">#my1092</a></h2>
 
         <p class="record">
-            There have been
+            There were
             <span id="record-container"></span>
-            days since
-            <a href='https://en.wikipedia.org/wiki/2010%E2%80%9311_Belgian_government_formation'>passing Belgium</a>.
+            days more than
+            <a href='https://en.wikipedia.org/wiki/2010%E2%80%9311_Belgian_government_formation'>Belgium's record</a>.
         </p>
 
         <p>
@@ -74,15 +76,16 @@
     </div>
 
     <script type="text/javascript">
-        Date.daysSince = function (compareDate) {
+        Date.daysSince = function (untilDate, compareDate) {
             var millisecondsInDay = 24 * 60 * 60 * 1000;
-            var timeDiff = new Date().getTime() - compareDate.getTime();
+            var timeDiff = untilDate.getTime() - compareDate.getTime();
             return Math.floor(timeDiff / millisecondsInDay);
         }
 
         var noGov = (function () {
             var noGovDate = new Date(2017, 0, 16);
             var currentRecordDays = 589;
+            var govDate = new Date(2020, 1, 13);
             var daysSinceGov = Date.daysSince(noGovDate);
 
             return {
@@ -93,7 +96,7 @@
                     return Math.abs(currentRecordDays - daysSinceGov);
                 },
                 description: function () {
-                  return "It has been " + daysSinceGov +" days since Northern Ireland had a government. There have been "+ currentRecordDays - daysSinceGov + " days since passing Belgium";
+                  return "Northern Ireland spent " + daysSinceGov +" days without a government. There were "+ currentRecordDays - daysSinceGov + " days more than Belgium's record";
                 }
             };
         })();
