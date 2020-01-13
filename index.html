@@ -56,7 +56,7 @@
         <h2>Northern Ireland has a government</h2>
 
         <p>
-            Under the current MLAs, Northern Ireland spent
+            With the current MLAs, Northern Ireland spent
             <span id="days-container"></span>
             days without a government.
         </p>
@@ -122,8 +122,8 @@
         var noGov = (function () {
             var noGovDate = new Date(2017, 0, 16);
             var currentRecordDays = 589;
-            var govDate = new Date(2020, 1, 13);
-            var daysSinceGov = Date.daysSince(noGovDate);
+            var govDate = new Date(2020, 0, 12);
+            var daysSinceGov = Date.daysSince(govDate, noGovDate);
 
             return {
                 totalDays: function () {
